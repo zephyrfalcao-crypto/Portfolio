@@ -93,3 +93,105 @@ if (revealTargets.length && !prefersReducedMotion && "IntersectionObserver" in w
 } else {
     revealTargets.forEach((target) => target.classList.add("is-visible"));
 }
+
+// Fond astral
+const bgCanvas = document.getElementById("bg-canvas");
+
+if (bgCanvas) {
+    const ctx = bgCanvas.getContext("2d");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let width = 0;
+    let height = 0;
+    let stars = [];
+    let animationId = 0;
+
+    const starColors = [
+        "255, 255, 255",
+        "196, 181, 253",
+        "125, 211, 252",
+        "216, 191, 138",
+    ];
+
+    const createStars = () => {
+        const count = Math.min(180, Math.floor((width * height) / 9000));
+        stars = Array.from({ length: count }, () => {
+            const radius = Math.random() * 1.8 + 0.4;
+            return {
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: radius,
+                baseAlpha: Math.random() * 0.55 + 0.25,
+                twinkleSpeed: Math.random() * 0.018 + 0.006,
+                twinkleOffset: Math.random() * Math.PI * 2,
+                driftX: (Math.random() - 0.5) * 0.08,
+                driftY: (Math.random() - 0.5) * 0.08,
+                glow: radius > 1.4 ? Math.random() * 8 + 6 : 0,
+                color: starColors[Math.floor(Math.random() * starColors.length)],
+            };
+        });
+    };
+
+    const resize = () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        bgCanvas.width = Math.floor(width * dpr);
+        bgCanvas.height = Math.floor(height * dpr);
+        bgCanvas.style.width = `${width}px`;
+        bgCanvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        createStars();
+        draw(0);
+    };
+
+    const draw = (time) => {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < stars.length; i += 1) {
+            const star = stars[i];
+
+            if (!reduceMotion) {
+                star.x += star.driftX;
+                star.y += star.driftY;
+                if (star.x < -10) star.x = width + 10;
+                if (star.x > width + 10) star.x = -10;
+                if (star.y < -10) star.y = height + 10;
+                if (star.y > height + 10) star.y = -10;
+            }
+
+            const twinkle = reduceMotion
+                ? 0
+                : (Math.sin(time * star.twinkleSpeed + star.twinkleOffset) + 1) / 2;
+            const alpha = Math.min(1, star.baseAlpha + twinkle * 0.35);
+
+            if (star.glow) {
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(${star.color}, ${alpha * 0.12})`;
+                ctx.arc(star.x, star.y, star.glow, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(${star.color}, ${alpha})`;
+            ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        if (!reduceMotion) {
+            animationId = window.requestAnimationFrame(draw);
+        }
+    };
+
+    window.addEventListener("resize", () => {
+        window.cancelAnimationFrame(animationId);
+        resize();
+        if (!reduceMotion) {
+            animationId = window.requestAnimationFrame(draw);
+        }
+    });
+
+    resize();
+    if (!reduceMotion) {
+        animationId = window.requestAnimationFrame(draw);
+    }
+}
