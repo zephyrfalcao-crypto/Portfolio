@@ -206,6 +206,7 @@ ul {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     padding: 8px 14px;
     border-radius: 999px;
     border: 1px solid rgba(216, 191, 138, 0.24);
@@ -216,6 +217,12 @@ ul {
     font-weight: 700;
     font-family: var(--font-display);
     animation: softPulse 4s ease-in-out infinite;
+}
+
+.section-label svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 
 .section-title h2 {
@@ -584,6 +591,65 @@ ul {
 .hero-floating-card p:last-child {
     color: var(--text-color);
     font-size: 0.95rem;
+}
+
+/* Statistiques */
+.stats {
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 28px 24px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(21, 31, 53, 0.92), rgba(21, 31, 53, 0.72));
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(216, 191, 138, 0.28);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: var(--accent-color);
+    background: rgba(216, 191, 138, 0.12);
+    border: 1px solid rgba(216, 191, 138, 0.2);
+}
+
+.stat-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.96rem;
 }
 
 /* A propos */
@@ -1338,7 +1404,8 @@ ul {
 
     .skills-container,
     .projects-container,
-    .contact-cards {
+    .contact-cards,
+    .stats-container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1446,7 +1513,8 @@ ul {
 
     .skills-container,
     .projects-container,
-    .contact-cards {
+    .contact-cards,
+    .stats-container {
         grid-template-columns: 1fr;
     }
 
