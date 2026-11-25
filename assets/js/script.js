@@ -69,7 +69,7 @@ if (sections.length && navItems.length) {
 // Révélation progressive des éléments
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealTargets = document.querySelectorAll(
-    ".section-title, .about-content > *, .about-infos .info-card, .skill-card, .project-card, .contact-content, .stat-card"
+    ".section-title, .about-content > *, .about-infos .info-card, .stats-panel, .skill-card, .project-card, .contact-content"
 );
 
 if (revealTargets.length && !prefersReducedMotion && "IntersectionObserver" in window) {
