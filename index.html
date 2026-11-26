@@ -52,6 +52,10 @@
                 <div class="hero-buttons">
                     <a href="#projets" class="btn btn-primary">Découvrir mes projets</a>
                     <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                    <a href="assets/docs/cv-andry-fitiavana.pdf" class="btn btn-secondary" download>
+                        Télécharger mon CV
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
                 </div>
 
                 <div class="hero-highlights" aria-label="Points clés">
@@ -215,49 +219,63 @@
                 <h2>Mes domaines</h2>
                 <p>Les technologies et domaines que j'explore et que je continue d'approfondir au fil de mes projets.</p>
             </div>
-            <div class="skills-container">
+            <div class="skills-container content-stepper" data-stepper role="group" aria-label="Parcours des compétences">
                 <!--Programmation-->
-                <div class="skill-card">
+                <div class="skill-card" data-stepper-item>
                     <span class="skill-icon" aria-hidden="true">01</span>
                     <h3>Programmation</h3>
                     <p>C, Java, C#, PHP</p>
                     <span class="skill-level">Bases solides en cours de renforcement</span>
                 </div>
                 <!--Développement web-->
-                <div class="skill-card">
+                <div class="skill-card" data-stepper-item>
                     <span class="skill-icon" aria-hidden="true">02</span>
                     <h3>Développement web</h3>
                     <p>HTML, CSS, JavaScript</p>
                     <span class="skill-level">Création d'interfaces modernes</span>
                 </div>
                 <!--Bases de données-->
-                <div class="skill-card">
+                <div class="skill-card" data-stepper-item>
                     <span class="skill-icon" aria-hidden="true">03</span>
                     <h3>Bases de données</h3>
                     <p>MySQL, SQL</p>
                     <span class="skill-level">Modélisation et requêtes essentielles</span>
                 </div>
                 <!--Design-->
-                <div class="skill-card">
+                <div class="skill-card" data-stepper-item>
                     <span class="skill-icon" aria-hidden="true">04</span>
                     <h3>Design &amp; PAO</h3>
                     <p>Figma, Photoshop</p>
                     <span class="skill-level">Sens du visuel et de la présentation</span>
                 </div>
                 <!-- Systèmes -->
-                <div class="skill-card">
+                <div class="skill-card" data-stepper-item>
                     <span class="skill-icon" aria-hidden="true">05</span>
                     <h3>Systèmes &amp; réseaux</h3>
                     <p>Linux, Windows, réseaux</p>
                     <span class="skill-level">Compréhension de l'environnement technique</span>
                 </div>
                 <!-- Autres -->
-                <div class="skill-card">
+                <div class="skill-card" data-stepper-item>
                     <span class="skill-icon" aria-hidden="true">06</span>
                     <h3>Outils</h3>
                     <p>Git, VS Code</p>
                     <span class="skill-level">Workflow de développement quotidien</span>
                 </div>
+            </div>
+            <div class="stepper-controls" data-stepper-controls hidden>
+                <button class="stepper-button" type="button" data-stepper-prev aria-label="Compétence précédente">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0 7 7m-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Précédent</span>
+                </button>
+                <div class="stepper-progress">
+                    <span class="stepper-count" data-stepper-count aria-live="polite"></span>
+                    <span class="stepper-track" aria-hidden="true"><span data-stepper-progress></span></span>
+                </div>
+                <button class="stepper-button stepper-button-next" type="button" data-stepper-next aria-label="Compétence suivante">
+                    <span>Suivant</span>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-7-7m7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
             </div>
         </section>
 
@@ -269,8 +287,8 @@
                 <p>Deux exemples de projets de gestion qui illustrent ma capacité à concevoir des solutions utiles et organisées.</p>
             </div>
 
-            <div class="projects-container">
-                <article class="project-card">
+            <div class="projects-container content-stepper" data-stepper role="group" aria-label="Parcours des projets">
+                <article class="project-card" data-stepper-item>
                     <div class="project-image project-illustration" aria-hidden="true">
                         <div class="illustration-icon">
                             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -295,7 +313,7 @@
                     </div>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card" data-stepper-item>
                     <div class="project-image project-illustration" aria-hidden="true">
                         <div class="illustration-icon">
                             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -320,6 +338,20 @@
                     </div>
                 </article>
             </div>
+            <div class="stepper-controls" data-stepper-controls hidden>
+                <button class="stepper-button" type="button" data-stepper-prev aria-label="Projet précédent">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0 7 7m-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Précédent</span>
+                </button>
+                <div class="stepper-progress">
+                    <span class="stepper-count" data-stepper-count aria-live="polite"></span>
+                    <span class="stepper-track" aria-hidden="true"><span data-stepper-progress></span></span>
+                </div>
+                <button class="stepper-button stepper-button-next" type="button" data-stepper-next aria-label="Projet suivant">
+                    <span>Suivant</span>
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-7-7m7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
         </section>
 
         <!--Contact-->
@@ -332,32 +364,90 @@
 
             <div class="contact-content">
                 <div class="contact-intro">
-                    <h3>Discutons de vos idées</h3>
-                    <p>Je serai ravi de découvrir de nouvelles opportunités, d'apprendre à travers de nouveaux défis et de discuter de projets numériques.</p>
+                    <p class="contact-status"><span aria-hidden="true"></span> Ouvert à la discussion</p>
+                    <p class="contact-kicker">UNE IDÉE À FAIRE GRANDIR&nbsp;?</p>
+                    <h3>Parlons de votre prochain projet.</h3>
+                    <p>Une collaboration, une opportunité ou simplement une question&nbsp;? Je serais ravi d'échanger avec vous et de continuer à apprendre au fil de nouveaux défis.</p>
+                    <div class="contact-actions">
+                        <a class="btn btn-primary" href="https://www.linkedin.com/in/z%C3%A9phyr-falcao-bb3185452" target="_blank" rel="noopener noreferrer">
+                            Me contacter sur LinkedIn
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="btn btn-secondary" href="assets/docs/cv-andry-fitiavana.pdf" download>
+                            Télécharger mon CV
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="contact-signature">
+                        <img src="assets/images/moi.jpeg" alt="" aria-hidden="true">
+                        <div>
+                            <strong>Andry Fitiavana</strong>
+                            <span>Étudiant en informatique · Développeur en devenir</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="contact-cards">
-                    <div class="contact-card">
-                        <h4>Collaboration</h4>
-                        <p>Ouvert aux projets étudiants, aux idées créatives et aux expériences d'apprentissage.</p>
+                <div class="contact-side">
+                    <p class="contact-side-label">RETROUVE-MOI EN LIGNE</p>
+                    <div class="contact-cards">
+                        <a class="contact-card contact-card-link contact-channel" href="https://www.linkedin.com/in/z%C3%A9phyr-falcao-bb3185452" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-channel-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.2 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2ZM3.4 9h3.7v11H3.4V9Zm6 0H13v1.5h.1c.5-.9 1.7-1.9 3.5-1.9 3.8 0 4.5 2.5 4.5 5.7V20h-3.7v-5c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7V20H9.4V9Z"/></svg>
+                            </span>
+                            <span class="contact-channel-copy">
+                                <strong>LinkedIn</strong>
+                                <span>Échangeons sur les opportunités</span>
+                            </span>
+                            <svg class="contact-channel-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a class="contact-card contact-card-link contact-channel" href="https://github.com/zephyrfalcao-crypto" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-channel-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.9.1-.7.4-1.1.6-1.3-2.2-.2-4.5-1.1-4.5-4.7 0-1 .4-1.9 1-2.5-.1-.3-.4-1.3.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.2 2.6-1 2.6-1 .5 1.2.2 2.2.1 2.5.6.7 1 1.5 1 2.5 0 3.6-2.3 4.5-4.5 4.7.4.3.7.9.7 1.8v2.6c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z"/></svg>
+                            </span>
+                            <span class="contact-channel-copy">
+                                <strong>GitHub</strong>
+                                <span>Découvre mes projets et mon code</span>
+                            </span>
+                            <svg class="contact-channel-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
                     </div>
-                    <div class="contact-card">
-                        <h4>Échange</h4>
-                        <p>Intéressé par le développement, la technologie et la création de solutions utiles.</p>
+                    <div class="contact-availability">
+                        <span class="availability-label"><span aria-hidden="true"></span> DISPONIBILITÉ</span>
+                        <strong>Prêt à apprendre et à collaborer</strong>
+                        <p>Projets étudiants, idées créatives et nouvelles expériences.</p>
                     </div>
-                    <a class="contact-card contact-card-link" href="https://www.linkedin.com/in/z%C3%A9phyr-falcao-bb3185452" target="_blank" rel="noopener noreferrer">
-                        <h4>LinkedIn</h4>
-                        <p>Connectons-nous pour échanger autour de projets, d'opportunités et de technologie.</p>
-                        <span class="contact-link-label">Zéphyr Falcao</span>
-                    </a>
-                    <a class="contact-card contact-card-link" href="https://github.com/zephyrfalcao-crypto" target="_blank" rel="noopener noreferrer">
-                        <h4>GitHub</h4>
-                        <p>Retrouvez mes projets et mon parcours de développement sur GitHub.</p>
-                        <span class="contact-link-label">@zephyrfalcao-crypto</span>
-                    </a>
                 </div>
 
-                <a href="#accueil" class="btn btn-secondary">Retour en haut</a>
+                <form class="contact-form" id="contact-form" data-recipient="fitiavanaandry7@gmail.com">
+                    <div class="contact-form-heading">
+                        <p class="contact-side-label">ENVOYER UN MESSAGE</p>
+                        <h4>Envoie-moi un message</h4>
+                        <p>Remplis le formulaire : ta messagerie s'ouvrira avec les informations déjà renseignées.</p>
+                    </div>
+                    <div class="contact-form-fields">
+                        <label>
+                            Ton nom
+                            <input type="text" name="name" autocomplete="name" placeholder="Comment tu t'appelles ?" required>
+                        </label>
+                        <label>
+                            Ton adresse e-mail
+                            <input type="email" name="email" autocomplete="email" placeholder="nom@exemple.com" required>
+                        </label>
+                        <label class="contact-message-field">
+                            Ton message
+                            <textarea name="message" rows="5" maxlength="3000" placeholder="Décris ton idée, ta question ou ton projet..." required></textarea>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary contact-submit" type="submit">
+                        Envoyer mon message
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+                    <p class="contact-form-note">
+                        Aucun message n'est stocké sur ce site.
+                        <span>Besoin d'un autre moyen&nbsp;? <a href="mailto:fitiavanaandry7@gmail.com">Écris-moi directement</a>.</span>
+                    </p>
+                </form>
             </div>
         </section>
 

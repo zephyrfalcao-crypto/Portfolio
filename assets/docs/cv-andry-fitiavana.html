@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV d'Andry Fitiavana, étudiant en informatique et développeur en devenir.">
+    <title>CV — Andry Fitiavana</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17243b;
+            --muted: #58667b;
+            --navy: #10182b;
+            --violet: #7568d8;
+            --gold: #c9a962;
+            --line: #e4e9f1;
+            --paper: #fff;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 28px;
+            background: #edf1f7;
+            color: var(--ink);
+            font: 10pt/1.5 Arial, Helvetica, sans-serif;
+        }
+
+        .resume {
+            position: relative;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 14mm 15mm 12mm;
+            overflow: hidden;
+            background: var(--paper);
+            box-shadow: 0 24px 70px rgba(16, 24, 43, 0.18);
+        }
+
+        .resume-header {
+            display: flex;
+            align-items: center;
+            gap: 7mm;
+            margin: -14mm -15mm 8mm;
+            padding: 13mm 15mm 10mm;
+            color: #f5f7fb;
+            background:
+                radial-gradient(circle at 88% 0, rgba(124, 110, 230, 0.34), transparent 38%),
+                linear-gradient(125deg, #10182b, #1a2841);
+        }
+
+        .portrait {
+            flex: 0 0 29mm;
+            width: 29mm;
+            height: 29mm;
+            border: 2px solid rgba(216, 191, 138, 0.8);
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
+
+        .identity { min-width: 0; }
+
+        .name {
+            margin: 0;
+            color: #fff;
+            font-size: 26pt;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+
+        .role {
+            margin: 2mm 0 3mm;
+            color: #c7d2e3;
+            font-size: 11pt;
+            letter-spacing: 0.01em;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2mm 5mm;
+            color: #dfd4af;
+            font-size: 8.5pt;
+        }
+
+        a { color: inherit; }
+        .links a { text-decoration: none; }
+
+        .print-button {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            padding: 11px 16px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--gold);
+            color: var(--navy);
+            font: 700 14px Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 5px 16px rgba(16, 24, 43, 0.2);
+        }
+
+        .summary {
+            margin-bottom: 8mm;
+            padding: 4mm 5mm;
+            border-left: 3px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            background: #f5f6fb;
+            color: #46546b;
+            font-size: 9.5pt;
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 9mm;
+        }
+
+        section { margin-bottom: 7mm; }
+
+        h2 {
+            margin: 0 0 3.5mm;
+            padding-bottom: 2mm;
+            border-bottom: 1px solid var(--line);
+            color: var(--navy);
+            font-size: 10pt;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        h2::after {
+            display: block;
+            width: 15mm;
+            height: 2px;
+            margin-bottom: -2.2mm;
+            background: linear-gradient(90deg, var(--gold), var(--violet));
+            content: "";
+        }
+
+        .skill {
+            margin: 0 0 3mm;
+            color: var(--muted);
+            font-size: 9pt;
+        }
+
+        .skill strong {
+            display: block;
+            margin-bottom: 0.5mm;
+            color: var(--ink);
+            font-size: 9pt;
+        }
+
+        .project {
+            margin-bottom: 4mm;
+            padding: 0 0 3mm 3mm;
+            border-left: 2px solid #dcd8f7;
+        }
+
+        .project h3,
+        .education h3 {
+            margin: 0 0 1mm;
+            color: var(--ink);
+            font-size: 10pt;
+        }
+
+        .project p,
+        .education p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 9pt;
+        }
+
+        .project-type {
+            display: block;
+            margin-bottom: 1mm;
+            color: var(--violet);
+            font-size: 7.5pt;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .education {
+            padding: 4mm;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fafbfe;
+        }
+
+        .focus {
+            margin-top: 2mm;
+            padding: 4mm 5mm;
+            border-radius: 8px;
+            background: #f5f6fb;
+            color: var(--muted);
+            font-size: 8.5pt;
+        }
+
+        .focus strong {
+            display: block;
+            margin-bottom: 1mm;
+            color: var(--ink);
+        }
+
+        @page { size: A4; margin: 0; }
+
+        @media print {
+            body {
+                padding: 0;
+                background: #fff;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .resume {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .print-button { display: none; }
+        }
+
+        @media screen and (max-width: 760px) {
+            body { padding: 0; }
+            .resume { width: 100%; min-height: 100vh; padding: 24px; }
+            .resume-header { margin: -24px -24px 24px; padding: 28px 24px 22px; }
+            .portrait { flex-basis: 76px; width: 76px; height: 76px; }
+            .name { font-size: 24px; }
+            .role { font-size: 13px; }
+            .columns { grid-template-columns: 1fr; gap: 0; }
+            .print-button { position: sticky; z-index: 1; float: right; top: 12px; margin: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" type="button" onclick="window.print()">Imprimer / Enregistrer en PDF</button>
+    <main class="resume">
+        <header class="resume-header">
+            <img class="portrait" src="../images/moi.jpeg" alt="Portrait d'Andry Fitiavana">
+            <div class="identity">
+                <h1 class="name">Andry Fitiavana</h1>
+                <p class="role">Étudiant en informatique · Développeur en devenir</p>
+                <div class="links">
+                    <a href="https://github.com/zephyrfalcao-crypto">github.com/zephyrfalcao-crypto</a>
+                    <a href="https://www.linkedin.com/in/z%C3%A9phyr-falcao-bb3185452">LinkedIn · Profil</a>
+                </div>
+            </div>
+        </header>
+
+        <p class="summary">
+            Étudiant curieux et motivé, je développe mes compétences en programmation, développement web et bases de données.
+            J'aime transformer mes apprentissages en projets numériques utiles, organisés et soignés.
+        </p>
+
+        <div class="columns">
+            <div>
+                <section>
+                    <h2>Compétences</h2>
+                    <p class="skill"><strong>Programmation</strong>C, Java, C#, PHP</p>
+                    <p class="skill"><strong>Développement web</strong>HTML, CSS, JavaScript</p>
+                    <p class="skill"><strong>Bases de données</strong>MySQL, SQL</p>
+                    <p class="skill"><strong>Design &amp; PAO</strong>Figma, Photoshop</p>
+                    <p class="skill"><strong>Systèmes &amp; réseaux</strong>Linux, Windows, notions réseau</p>
+                    <p class="skill"><strong>Outils</strong>Git, Visual Studio Code</p>
+                </section>
+
+                <section>
+                    <h2>Formation</h2>
+                    <div class="education">
+                        <h3>Informatique</h3>
+                        <p>Études en informatique, avec une approche orientée vers l'apprentissage et la pratique.</p>
+                    </div>
+                </section>
+
+                <div class="focus">
+                    <strong>Centres d'intérêt</strong>
+                    Technologie, jeux vidéo, animé et basketball.
+                </div>
+            </div>
+
+            <div>
+                <section>
+                    <h2>Projets exploratoires</h2>
+                    <article class="project">
+                        <span class="project-type">Concept · Application de gestion</span>
+                        <h3>Gestion Étudiants</h3>
+                        <p>Concept pour centraliser les informations des étudiants, suivre les inscriptions et simplifier la gestion administrative.</p>
+                    </article>
+                    <article class="project">
+                        <span class="project-type">Concept · Application de suivi</span>
+                        <h3>Gestion Présence</h3>
+                        <p>Concept pour enregistrer les présences, consulter l'historique et faciliter le suivi quotidien des participants.</p>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Objectif</h2>
+                    <div class="education">
+                        <h3>Évoluer comme développeur</h3>
+                        <p>Continuer à apprendre, renforcer mes bases techniques et contribuer à des projets numériques utiles.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

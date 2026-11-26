@@ -66,10 +66,84 @@ if (sections.length && navItems.length) {
     updateHeaderState();
 }
 
-// Révélation progressive des éléments
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Navigation pas à pas des compétences et des projets
+document.querySelectorAll("[data-stepper]").forEach((stepper) => {
+    const items = Array.from(stepper.querySelectorAll("[data-stepper-item]"));
+    const controls = stepper.parentElement.querySelector("[data-stepper-controls]");
+
+    if (items.length < 2 || !controls) return;
+
+    const previousButton = controls.querySelector("[data-stepper-prev]");
+    const nextButton = controls.querySelector("[data-stepper-next]");
+    const count = controls.querySelector("[data-stepper-count]");
+    const progress = controls.querySelector("[data-stepper-progress]");
+    let activeIndex = 0;
+
+    const showItem = (nextIndex) => {
+        activeIndex = nextIndex;
+
+        items.forEach((item, index) => {
+            const isActive = index === activeIndex;
+            item.hidden = !isActive;
+            item.classList.remove("stepper-enter");
+
+            if (isActive && !prefersReducedMotion) {
+                void item.offsetWidth;
+                item.classList.add("stepper-enter");
+            }
+        });
+
+        previousButton.disabled = activeIndex === 0;
+        nextButton.disabled = activeIndex === items.length - 1;
+        count.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
+        progress.style.width = `${((activeIndex + 1) / items.length) * 100}%`;
+    };
+
+    previousButton.addEventListener("click", () => {
+        if (activeIndex > 0) showItem(activeIndex - 1);
+    });
+    nextButton.addEventListener("click", () => {
+        if (activeIndex < items.length - 1) showItem(activeIndex + 1);
+    });
+
+    controls.hidden = false;
+    showItem(0);
+});
+
+// Préparation du message dans l'application de messagerie du visiteur
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+    const formStatus = document.getElementById("contact-form-status");
+
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const name = formData.get("name").toString().trim();
+        const email = formData.get("email").toString().trim();
+        const message = formData.get("message").toString().trim();
+        const subject = `Message depuis le portfolio - ${name}`;
+        const body = [
+            `Bonjour Andry,`,
+            "",
+            message,
+            "",
+            `Nom : ${name}`,
+            `E-mail : ${email}`,
+        ].join("\n");
+        const mailtoUrl = `mailto:${contactForm.dataset.recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoUrl;
+        formStatus.textContent = "Ta messagerie s'ouvre pour finaliser l'envoi. Vérifie le message puis clique sur Envoyer.";
+    });
+}
+
+// Révélation progressive des éléments
 const revealTargets = document.querySelectorAll(
-    ".section-title, .about-content > *, .about-infos .info-card, .stats-panel, .skill-card, .project-card, .contact-content"
+    ".section-title, .about-content > *, .about-infos .info-card, .stats-panel, .contact-content"
 );
 
 if (revealTargets.length && !prefersReducedMotion && "IntersectionObserver" in window) {
