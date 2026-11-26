@@ -181,6 +181,36 @@ ul {
     box-shadow: 0 0 28px rgba(216, 191, 138, 0.28);
 }
 
+.language-toggle {
+    min-width: 62px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 10px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    font-family: var(--font-text);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.language-toggle-current {
+    color: var(--text-color);
+    background: rgba(216, 191, 138, 0.12);
+    border-radius: 999px;
+    padding: 4px 6px;
+}
+
+.language-toggle:hover {
+    border-color: rgba(216, 191, 138, 0.35);
+}
+
 .menu-btn {
     display: none;
     background: rgba(255, 255, 255, 0.04);
