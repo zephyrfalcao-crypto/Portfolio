@@ -45,7 +45,13 @@
                     Bonjour, je suis
                 </p>
                 <h1>Andry <span class="hero-name-accent">Fitiavana</span></h1>
-                <h2 class="hero-role">Etudiant en informatique <span class="hero-sep">/</span> Développeur en devenir</h2>
+                <h2 class="hero-role">
+                    <span class="hero-role-student">Étudiant en informatique</span>
+                    <span class="hero-role-next">
+                        <span class="hero-sep" aria-hidden="true">/</span>
+                        <span class="hero-role-developer">Développeur en devenir</span>
+                    </span>
+                </h2>
                 <p class="hero-description">Je transforme mes idées en projets numériques, et je continue d'apprendre chaque jour pour créer des expériences utiles, modernes et soignées.</p>
 
                 <!--Boutons-->
@@ -117,46 +123,63 @@
 
         <!--Statistiques-->
         <section class="stats section" id="statistiques" aria-label="Statistiques">
-            <div class="stats-container">
-                <div class="stats-panel">
-                    <p class="stats-panel-title">En chiffres</p>
-                    <div class="stat-bar-item">
-                        <div class="stat-bar-head">
-                            <span class="stat-bar-label">Technologies explorées</span>
-                            <span class="stat-bar-value">10+</span>
-                        </div>
-                        <div class="stat-bar-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Technologies explorées">
-                            <div class="stat-bar-fill" style="--fill:75%"></div>
-                        </div>
+            <div class="stats-hud">
+                <div class="stats-hud-header">
+                    <p class="stats-hud-title">STATUS</p>
+                    <span class="stats-hud-state"><span aria-hidden="true"></span>Système actif</span>
+                </div>
+                <div class="stats-identity">
+                    <div class="stats-rank" aria-label="Plus de dix technologies explorées">
+                        <strong>10+</strong>
+                        <span>TECHNOS</span>
                     </div>
-                    <div class="stat-bar-item">
-                        <div class="stat-bar-head">
-                            <span class="stat-bar-label">Projets illustratifs</span>
-                            <span class="stat-bar-value">2</span>
-                        </div>
-                        <div class="stat-bar-track" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Projets illustratifs">
-                            <div class="stat-bar-fill" style="--fill:50%"></div>
-                        </div>
+                    <div class="stats-profile">
+                        <p><span>CLASSE</span><strong>Étudiant en informatique</strong></p>
+                        <p><span>TITRE</span><strong>Développeur en devenir</strong></p>
                     </div>
                 </div>
-                <div class="stats-panel">
-                    <p class="stats-panel-title">Engagement</p>
-                    <div class="stat-bar-item">
-                        <div class="stat-bar-head">
-                            <span class="stat-bar-label">Domaines de compétences</span>
-                            <span class="stat-bar-value">6</span>
+                <div class="stats-hud-divider" aria-hidden="true"><span>Données du profil</span></div>
+                <div class="stats-container">
+                    <div class="stats-panel">
+                        <p class="stats-panel-title">En chiffres</p>
+                        <div class="stat-bar-item">
+                            <div class="stat-bar-head">
+                                <span class="stat-bar-label">Technologies explorées</span>
+                                <span class="stat-bar-value">10+</span>
+                            </div>
+                            <div class="stat-bar-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Technologies explorées">
+                                <div class="stat-bar-fill" style="--fill:75%"></div>
+                            </div>
                         </div>
-                        <div class="stat-bar-track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Domaines de compétences">
-                            <div class="stat-bar-fill" style="--fill:70%"></div>
+                        <div class="stat-bar-item">
+                            <div class="stat-bar-head">
+                                <span class="stat-bar-label">Projets illustratifs</span>
+                                <span class="stat-bar-value">2</span>
+                            </div>
+                            <div class="stat-bar-track" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Projets illustratifs">
+                                <div class="stat-bar-fill" style="--fill:50%"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-bar-item">
-                        <div class="stat-bar-head">
-                            <span class="stat-bar-label">Motivation à progresser</span>
-                            <span class="stat-bar-value">100%</span>
+                    <div class="stats-panel">
+                        <p class="stats-panel-title">Engagement</p>
+                        <div class="stat-bar-item">
+                            <div class="stat-bar-head">
+                                <span class="stat-bar-label">Domaines de compétences</span>
+                                <span class="stat-bar-value">6</span>
+                            </div>
+                            <div class="stat-bar-track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Domaines de compétences">
+                                <div class="stat-bar-fill" style="--fill:70%"></div>
+                            </div>
                         </div>
-                        <div class="stat-bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Motivation à progresser">
-                            <div class="stat-bar-fill" style="--fill:100%"></div>
+                        <div class="stat-bar-item">
+                            <div class="stat-bar-head">
+                                <span class="stat-bar-label">Motivation à progresser</span>
+                                <span class="stat-bar-value">100%</span>
+                            </div>
+                            <div class="stat-bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Motivation à progresser">
+                                <div class="stat-bar-fill" style="--fill:100%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
